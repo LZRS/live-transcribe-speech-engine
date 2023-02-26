@@ -35,12 +35,8 @@ android {
 
     sourceSets {
         main {
-            java {
-                srcDir 'src/main/java'
-            }
-            proto {
-                srcDir 'src/main/proto'
-            }
+            java.srcDirs += 'src/main/java'
+            proto.srcDirs += 'src/main/proto'
         }
     }
 
@@ -51,13 +47,13 @@ android {
         }
     }
 
-    ndkVersion '25.2.9519653'
-    externalNativeBuild {
+//    ndkVersion '25.2.9519653'
+//    externalNativeBuild {
 //        cmake {
 //            path file('CMakeLists.txt')
 //            version '3.22.1'
 //        }
-    }
+//    }
 }
 
 dependencies {
