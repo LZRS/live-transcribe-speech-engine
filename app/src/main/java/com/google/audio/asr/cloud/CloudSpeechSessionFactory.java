@@ -15,7 +15,7 @@
  */
 package com.google.audio.asr.cloud;
 
-import android.support.annotation.GuardedBy;
+import androidx.annotation.GuardedBy;
 import com.google.audio.asr.CloudSpeechSessionParams;
 import com.google.audio.asr.SpeechSession;
 import com.google.audio.asr.SpeechSessionFactory;

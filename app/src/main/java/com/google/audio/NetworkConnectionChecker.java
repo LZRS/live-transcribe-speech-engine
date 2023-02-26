@@ -18,9 +18,9 @@ package com.google.audio;
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
 import static android.os.Build.VERSION_CODES.N;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
