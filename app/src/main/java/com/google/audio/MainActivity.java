@@ -26,11 +26,6 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.text.InputType;
 import android.text.method.LinkMovementMethod;
@@ -43,6 +38,13 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceManager;
+
 import com.google.audio.asr.CloudSpeechSessionParams;
 import com.google.audio.asr.CloudSpeechStreamObserverParams;
 import com.google.audio.asr.RepeatingRecognitionSession;
@@ -275,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
     PreferenceManager.getDefaultSharedPreferences(context)
         .edit()
         .putString(SHARE_PREF_API_KEY, key)
-        .commit();
+        .apply();
   }
 
   /** Gets the API key from shared preference. */
