@@ -1,5 +1,6 @@
 # Builds the ogg and opus encoder library which used third party module.
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.22.1)
+
 # set related path of third party libraries.
 set(third_party_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../third_party)
 
