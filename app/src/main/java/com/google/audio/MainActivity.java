@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onRequestPermissionsResult(
       int requestCode, String[] permissions, int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     switch (requestCode) {
       case PERMISSIONS_REQUEST_RECORD_AUDIO:
         // If request is cancelled, the result arrays are empty.
@@ -206,13 +207,23 @@ public class MainActivity extends AppCompatActivity {
 
   private void startRecording() {
     if (audioRecord == null) {
-      audioRecord =
-          new AudioRecord(
-              MIC_SOURCE,
-              SAMPLE_RATE,
-              MIC_CHANNELS,
-              MIC_CHANNEL_ENCODING,
-              CHUNK_SIZE_SAMPLES * BYTES_PER_SAMPLE);
+      if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+        // TODO: Consider calling
+        //    ActivityCompat#requestPermissions
+        // here to request the missing permissions, and then overriding
+        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+        //                                          int[] grantResults)
+        // to handle the case where the user grants the permission. See the documentation
+        // for ActivityCompat#requestPermissions for more details.
+        return;
+      }
+      audioRecord = new AudioRecord(
+          MIC_SOURCE,
+          SAMPLE_RATE,
+          MIC_CHANNELS,
+          MIC_CHANNEL_ENCODING,
+          CHUNK_SIZE_SAMPLES * BYTES_PER_SAMPLE
+      );
     }
 
     audioRecord.startRecording();
