@@ -19,8 +19,8 @@
     <TextView
         android:id="@+id/transcript"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Say something!"
+        android:layout_height="wrap_content"
+        android:text="@string/say_something"
         android:textSize="@dimen/text_size"/>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
