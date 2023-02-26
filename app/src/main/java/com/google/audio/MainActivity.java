@@ -178,9 +178,9 @@ public class MainActivity extends AppCompatActivity {
             .setFilterProfanity(true)
             .setEncoderParams(
                 CloudSpeechSessionParams.EncoderParams.newBuilder()
-                    .setEnableEncoder(true)
-                    .setAllowVbr(true)
-                    .setCodec(CodecAndBitrate.OGG_OPUS_BITRATE_32KBPS))
+                    .setEnableEncoder(false))
+                    //.setAllowVbr(true)
+                    //.setCodec(CodecAndBitrate.OGG_OPUS_BITRATE_32KBPS))
             .build();
     networkChecker = new NetworkConnectionChecker(this);
     networkChecker.registerNetworkCallback();
