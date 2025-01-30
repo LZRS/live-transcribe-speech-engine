@@ -1,24 +1,24 @@
-# Set up a logging file.
-LOG_FILE_NAME=build_log.txt
-rm -f "${LOG_FILE_NAME}"
-touch "${LOG_FILE_NAME}"
-LOG_FILE=$(readlink -f "${LOG_FILE_NAME}")
-
-# Build Ogg and Opus libs.
-cd app/third_party/build
-echo "Building third party dependencies..."
-echo "  Downloading and building Ogg and Opus libraries. This may take a minute or two."
-echo "  See ${LOG_FILE} for logs."
-chmod 755 build_all.sh
-./build_all.sh > "${LOG_FILE}" 2>&1
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m  Dependencies successfully built.\e[0m"
-  cd ../../..
-else
-  echo -e "\e[31m  Dependencies did not build successfully. See ${LOG_FILE} for errors.\e[0m"
-  cd ../../..
-  exit 1
-fi
+## Set up a logging file.
+#LOG_FILE_NAME=build_log.txt
+#rm -f "${LOG_FILE_NAME}"
+#touch "${LOG_FILE_NAME}"
+#LOG_FILE=$(readlink -f "${LOG_FILE_NAME}")
+#
+## Build Ogg and Opus libs.
+#cd app/third_party/build
+#echo "Building third party dependencies..."
+#echo "  Downloading and building Ogg and Opus libraries. This may take a minute or two."
+#echo "  See ${LOG_FILE} for logs."
+#chmod 755 build_all.sh
+#./build_all.sh > "${LOG_FILE}" 2>&1
+#if [ $? -eq 0 ]; then
+#  echo -e "\e[32m  Dependencies successfully built.\e[0m"
+#  cd ../../..
+#else
+#  echo -e "\e[31m  Dependencies did not build successfully. See ${LOG_FILE} for errors.\e[0m"
+#  cd ../../..
+#  exit 1
+#fi
 
 # Tell gradle where the Android SDK is located.
 echo sdk.dir="${ANDROID_SDK_PATH}" > local.properties
